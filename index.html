@@ -861,63 +861,63 @@
         @media (max-width: 768px) {
             .pokemon-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                padding: 10px;
+                gap: 8px;
+                padding: 8px;
             }
 
             .pokemon-card {
                 width: 100%;
                 height: auto;
-                min-height: 150px;
-                padding: 10px;
+                min-height: 120px;
+                padding: 8px;
                 margin: 0;
             }
 
             .pokemon-card img {
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
             }
 
             .pokemon-name {
-                font-size: 14px;
+                font-size: 12px;
             }
 
             .pokemon-number {
-                font-size: 12px;
+                font-size: 10px;
             }
 
             .generation-selector {
                 flex-wrap: wrap;
-                gap: 5px;
-                padding: 10px;
+                gap: 4px;
+                padding: 8px;
             }
 
             .generation-selector button {
-                padding: 8px 12px;
-                font-size: 14px;
+                padding: 6px 10px;
+                font-size: 12px;
             }
 
             .sound-toggle {
                 top: 10px;
                 left: 10px;
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
             }
 
             .sound-toggle i {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
             .pokemon-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                gap: 6px;
             }
 
             .generation-selector button {
-                padding: 6px 10px;
-                font-size: 12px;
+                padding: 4px 8px;
+                font-size: 11px;
             }
         }
 
@@ -1534,7 +1534,7 @@
             soundToggle.querySelector('i').className = isSoundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
         });
 
-        // Modifica la funzione playPokemonCry
+        // Modifica la funzione playPokemonCry per gestire meglio il suono su mobile
         function playPokemonCry(pokemonId) {
             if (!isSoundEnabled) return;
             
@@ -1573,6 +1573,19 @@
                 });
             }
         }
+
+        // Aggiungi un listener per gestire l'interazione utente
+        document.addEventListener('touchstart', function() {
+            // Crea un elemento audio vuoto e riproduci un suono silenzioso
+            const audio = new Audio();
+            audio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAACBgIF/gn6DfYR7hHmEeIR3hHaEdoR1hHSEc4RyhHGEcIRvhG6EbYRshGuEaoRphGiEZ4RmhGWEZIRjhGKEYYQ=';
+            audio.volume = 0;
+            audio.play().then(() => {
+                console.log('Audio context initialized');
+            }).catch(error => {
+                console.error('Error initializing audio context:', error);
+            });
+        }, { once: true });
     </script>
 </body>
 </html>
