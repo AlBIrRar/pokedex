@@ -786,7 +786,7 @@
 
         @media screen and (max-width: 480px) {
             .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 0.6rem;
             }
 
@@ -870,6 +870,7 @@
                 height: auto;
                 min-height: 150px;
                 padding: 10px;
+                margin: 0;
             }
 
             .pokemon-card img {
@@ -910,7 +911,8 @@
 
         @media (max-width: 480px) {
             .pokemon-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
             }
 
             .generation-selector button {
@@ -1536,7 +1538,13 @@
         function playPokemonCry(pokemonId) {
             if (!isSoundEnabled) return;
             
-            const audio = new Audio(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonId}.ogg`);
+            // Crea un nuovo elemento audio
+            const audio = new Audio();
+            
+            // Imposta l'URL del suono
+            audio.src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonId}.ogg`;
+            
+            // Imposta il volume
             audio.volume = 0.5;
             
             // Aggiungi l'animazione durante la riproduzione
@@ -1556,7 +1564,10 @@
             const playPromise = audio.play();
             
             if (playPromise !== undefined) {
-                playPromise.catch(error => {
+                playPromise.then(() => {
+                    // Suono riprodotto con successo
+                    console.log('Suono riprodotto con successo');
+                }).catch(error => {
                     console.error('Errore nella riproduzione del suono:', error);
                     soundToggle.classList.remove('playing');
                 });
