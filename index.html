@@ -781,6 +781,194 @@
                 width: 100%;
             }
         }
+
+        /* Miglioramenti Mobile */
+        @media (max-width: 768px) {
+            .pokemon-card {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .pokemon-info {
+                text-align: center;
+            }
+
+            .pokemon-name {
+                text-align: center;
+                width: 100%;
+            }
+
+            .pokemon-number {
+                text-align: center;
+                width: 100%;
+            }
+
+            .pokemon-types {
+                justify-content: center;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .completion-text {
+                text-align: center;
+            }
+
+            .completion-status {
+                text-align: center;
+            }
+
+            .completion-status h3 {
+                text-align: center;
+            }
+
+            .stats span {
+                text-align: center;
+            }
+
+            /* Gesture per navigazione */
+            .pokemon-grid {
+                touch-action: pan-y pinch-zoom;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Pull to refresh */
+            .pokemon-grid {
+                overscroll-behavior-y: contain;
+            }
+
+            /* Ottimizzazione layout mobile */
+            .pokemon-card {
+                margin: 0.5rem;
+                width: calc(50% - 1rem);
+            }
+
+            .pokemon-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .pokemon-name {
+                font-size: 1rem;
+            }
+
+            .pokemon-number {
+                font-size: 0.8rem;
+            }
+
+            .type-badge {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
+
+            .stats span {
+                font-size: 0.8rem;
+            }
+
+            .stats i {
+                font-size: 0.8rem;
+            }
+
+            .completion-text {
+                font-size: 0.8rem;
+            }
+
+            .completion-status h3 {
+                font-size: 1rem;
+            }
+
+            .completion-status .progress-bar {
+                height: 0.8rem;
+            }
+
+            .completion-status .progress {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pokemon-card {
+                width: calc(100% - 1rem);
+            }
+
+            .pokemon-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .pokemon-name {
+                font-size: 0.9rem;
+            }
+
+            .pokemon-number {
+                font-size: 0.7rem;
+            }
+
+            .type-badge {
+                padding: 0.2rem 0.4rem;
+                font-size: 0.6rem;
+            }
+
+            .stats {
+                gap: 0.8rem;
+            }
+
+            .stats span {
+                font-size: 0.7rem;
+            }
+
+            .stats i {
+                font-size: 0.7rem;
+            }
+
+            .completion-text {
+                font-size: 0.7rem;
+            }
+
+            .completion-status h3 {
+                font-size: 0.9rem;
+            }
+
+            .completion-status .progress-bar {
+                height: 0.6rem;
+            }
+
+            .completion-status .progress {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* Miglioramenti per touch */
+        @media (hover: none) {
+            .pokemon-card {
+                transition: transform 0.2s ease;
+            }
+
+            .pokemon-card:active {
+                transform: scale(0.98);
+            }
+
+            .type-badge {
+                transition: transform 0.2s ease;
+            }
+
+            .type-badge:active {
+                transform: scale(0.95);
+            }
+
+            .settings-toggle {
+                transition: transform 0.2s ease;
+            }
+
+            .settings-toggle:active {
+                transform: scale(0.95);
+            }
+        }
     </style>
 </head>
 <body>
